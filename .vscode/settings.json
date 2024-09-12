@@ -1,0 +1,17 @@
+{
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "ouzizidb",
+            "database": "${workspaceFolder:capmapp}/db.sqlite"
+        },
+        {
+            "previewLimit": 50,
+            "driver": "SQLite",
+            "name": "ouzizidb",
+            "database": "${workspaceFolder:capmapp}/db.sqlite"
+        }
+    ],
+    "sqltools.useNodeRuntime": true
+}
