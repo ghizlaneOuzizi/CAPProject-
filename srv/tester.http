@@ -1,0 +1,58 @@
+###Get the service document
+http://localhost:4004/odata/v4/CatalogService 
+
+###Get Service metadata document
+http://localhost:4004/odata/v4/CatalogService/$metadata 
+
+###Get All employee data
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+
+###Pagination - load data chunk by chunk
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2
+
+###Filtring of data = where Condition
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$filter=salaryAmount ge 1000000
+
+###Counting Records
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/$count
+
+###Get Single Record by Key
+http://localhost:4004/odata/v4/CatalogService/EmployeeSet/{id}
+
+###Get Single PO
+http://localhost:4004/odata/v4/CatalogService/POs/{Nodeid}
+
+###Get the PO and it's Items data together - Associations
+http://localhost:4004/odata/v4/CatalogService/POs/{Nodeid}?$expand=Items,PARTNER_GUID
+
+###POST - To Create New Employee
+POST http://localhost:4004/odata/v4/CatalogService/EmployeeSet
+Content-Type: application/json
+
+{
+  "nameFirst": "Sally",
+  "nameMiddle": "",
+  "nameLast": "Spring",
+  "nameInitials": null,
+  "sex": "F",
+  "language": "E",
+  "phoneNumber": "224874524",
+  "email": "sally.spring@itelo.info",
+  "loginName": "SPRINGS",
+  "Currency": "USD",
+  "salaryAmount": 55549,
+  "accountNumber": "111222333",
+  "bankId": "510000655",
+  "bankName": "My Bank of Antioch"
+}
+
+###PATCH to update the employee data
+PATCH http://localhost:4004/odata/v4/CatalogService/EmployeeSet/{ID}
+Content-Type: application/json
+
+{
+    "salaryAmount": 9654896
+}
+
+###DELETE Employee data
+DELETE http://localhost:4004/odata/v4/CatalogService/EmployeeSet/[ID]
