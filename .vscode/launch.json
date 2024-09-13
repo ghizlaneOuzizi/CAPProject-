@@ -4,8 +4,8 @@
     {
       "name": "cds serve",
       "request": "launch",
-      "type": "node",
-      "cwd": "${workspaceFolder}",
+      "type": "node-terminal",
+      "cwd": "${workspaceFolder}//capmapp",
       "runtimeExecutable": "cds",
       "args": [
         "serve",
