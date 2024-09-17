@@ -1,4 +1,5 @@
 using { ouzizi.cds } from '../db/CDSViews';
+using { ouzizi.db.master } from '../db/data-model';
 
 service MyService @(path: 'MyService'){
 
@@ -7,4 +8,6 @@ service MyService @(path: 'MyService'){
         *,
         ProductOrders
     };
+
+    entity ReadEmployeeSrv as projection on master.employees;
 }

@@ -7,6 +7,9 @@ http://localhost:4004/odata/v4/CatalogService/$metadata
 ###Get All employee data
 http://localhost:4004/odata/v4/CatalogService/EmployeeSet
 
+###Get All employee data with odata v2
+http://localhost:4004/v2/odata/v4/CatalogService/EmployeeSet
+
 ###Pagination - load data chunk by chunk
 http://localhost:4004/odata/v4/CatalogService/EmployeeSet?$top=2
 
@@ -37,7 +40,7 @@ Content-Type: application/json
   "email": "salim.anub@itelo.info",
   "loginName": "SALIM",
   "Currency": {"code":"USD"},
-  "salaryAmount": 1005549,
+  "salaryAmount": 5549,
   "accountNumber": "181228339",
   "bankId": "510440655",
   "bankName": "My Bank"
@@ -81,7 +84,10 @@ Content-Type: application/json
 GET http://localhost:4004/odata/v4/CatalogService/POs/74867AD200E41EDBA5D8B06885B04052/largestOrder()
 
 ###Getting Product data from CDS View
-GET http://localhost:4004/odata/v4/CatalogService/ProductOrdersSet/{Id}
+GET http://localhost:4004/odata/v4/MyService/ProductOrdersSet/{Id}
 
 ###Get the lazy loading
-GET http://localhost:4004/odata/v4/CatalogService/ProductOrdersSet/{Id}/PO_ORDERS
+GET http://localhost:4004/odata/v4/MyService/ProductOrdersSet/{Id}/PO_ORDERS
+
+###Complete custom entity
+GET http://localhost:4004/odata/v4/MyService/ReadEmployeeSrv

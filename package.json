@@ -1,22 +1,28 @@
 {
-	"name": "capmapp",
-	"version": "1.0.0",
-	"description": "A simple CAP project.",
-	"repository": "<Add your repository here>",
-	"license": "UNLICENSED",
-	"private": true,
-	"dependencies": {
-		"@sap/cds": "^7",
-		"better-sqlite3": "^11.3.0",
-		"capmapp": "file:",
-		"express": "^4"
-	},
-	"devDependencies": {
-		"@cap-js/sqlite": "^1",
-		"@sap/dev-cap-tools": "^1.31.0"
-	},
-	"scripts": {
-		"start": "cds-serve",
-		"dora": "cds watch"
-	}
+  "name": "capmapp",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^7",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "better-sqlite3": "^11.3.0",
+    "capmapp": "file:",
+    "express": "^4"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/dev-cap-tools": "^1.31.0",
+    "@sap/ux-specification": "UI5-1.128"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "dora": "cds watch",
+    "watch-purchaseorderapp": "cds watch --open purchaseorderapp/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "sapux": [
+    "app/purchaseorderapp"
+  ]
 }

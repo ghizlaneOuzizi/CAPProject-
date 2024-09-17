@@ -1,8 +1,13 @@
 
 module.exports = cds.service.impl(async function(){
 
-    const {POs} = this.entities;
-
+    const {POs, EmployeeSet} = this.entities;
+    //generate handler
+    this.before(['CREATE','PATCH'], EmployeeSet, (req)=>{
+        if(parseFloat(req.data.salaryAmount) >= 1000000){
+            req.error(500, "This transaction cannot be done, it shouldn't be over one million");
+        }
+    });
     this.on('boost', async (req) => {
              // Implement the logic for the 'boost' action
              console.log('this is boost function');
@@ -19,7 +24,7 @@ module.exports = cds.service.impl(async function(){
                  return "ERROR "+ error.toString();
                 }
          });
-         this.on('largestOrder', async (req) => {
+    this.on('largestOrder', async (req) => {
             // Implement the logic for the 'boost' action
             console.log('this is LargestOrder function');
           
