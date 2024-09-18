@@ -9,20 +9,20 @@ module.exports = cds.service.impl(async function(){
         }
     });
     this.on('boost', async (req) => {
-             // Implement the logic for the 'boost' action
-             console.log('this is boost function');
-           
-             try{
-                 const ID= req.params[0]
-                 //start a db transaction
-                 const tx = cds.tx(req);
-                 //CDS Query language - communication to DB in agnostic manner
-                 await tx.update(POs).with({
-                        GROSS_AMOUNT: { '+=' : 20000 }
-                 }).where(ID);             
-                } catch(error){
+        // Implement the logic for the 'boost' action
+        try{
+            const ID= req.params[0];
+         //start a db transaction
+            const tx = cds.tx(req);
+         //CDS Query language - communication to DB in agnostic manner
+            await tx.update(POs).with({
+                GROSS_AMOUNT: {'+=' : 20000}
+                }).where(ID); 
+                        
+            } catch(error){
+                 console.error('Update Error:', error);
                  return "ERROR "+ error.toString();
-                }
+            }
          });
     this.on('largestOrder', async (req) => {
             // Implement the logic for the 'boost' action
