@@ -1,5 +1,5 @@
 {
-  "name": "capmapp",
+  "name": "capproject-",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -7,13 +7,13 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^7",
-    "@sap/cds-odata-v2-adapter-proxy": "^1.9.21",
+    "@sap/cds-odata-v2-adapter-proxy": "^1.9.7",
     "better-sqlite3": "^11.3.0",
-    "capmapp": "file:",
+    "capproject-": "file:",
     "express": "^4"
   },
   "devDependencies": {
-    "@cap-js/sqlite": "^1",
+    "@cap-js/sqlite": "^1.7.3",
     "@sap/dev-cap-tools": "^1.31.0",
     "@sap/ux-specification": "UI5-1.128"
   },

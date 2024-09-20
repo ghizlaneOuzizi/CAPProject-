@@ -80,10 +80,7 @@ annotate service.POs with @(
         },{
             $Type : 'UI.DataField',
             Value : PARTNER_GUID_NODE_KEY,
-        },{
-            $Type : 'UI.DataField',
-            Value : OVERALL_STATUS,
-        },  
+        },
     ],
     UI.FieldGroup #Dora:{
         Label : 'Price Data',
@@ -223,4 +220,41 @@ annotate service.POItems with @(
         ],
     },
 );
+//Linking the help with PO
+annotate service.POs with{
+    PARTNER_GUID@(
+        Common.Text: PARTNER_GUID.COMPANY_NAME,
+        Common.ValueList.entity: service.BusinessPartnerSet
+    );
+};
+
+//Linking the help with POItems
+annotate service.POItems with{
+    PRODUCT_GUID@(
+        Common.Text: PRODUCT_GUID.DESCRIPTION,
+        Common.ValueList.entity: service.ProductSet
+    );
+};
+
+@cds.odata.valuelist
+annotate service.BusinessPartnerSet with @(
+    UI.Identification:[
+        {
+            $Type : 'UI.DataField',
+            Value : COMPANY_NAME,
+        }
+    ]
+) ;
+//we created a value help in SE11
+@cds.odata.valuelist
+annotate service.ProductSet with @(
+    UI.Identification :[
+        {
+            $Type : 'UI.DataField',
+            Value : DESCRIPTION,
+        },
+    ]
+) ;
+
+
 

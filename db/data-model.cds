@@ -70,16 +70,16 @@ context master {
 }
 context transaction {
     entity purchaseorder : common.Amount {
-        key NODE_KEY: common.Guid @title : '{i18n>PO_KEY}';
+        key ID: common.Guid @title : '{i18n>PO_KEY}';
         PO_ID: String(40) @title : '{i18n>PO_ID}';
         PARTNER_GUID: Association to master.businesspartner @title : '{i18n>PARTNER_GUID}';
         LIFECYCLE_STATUS: String(1);
         OVERALL_STATUS: String(1) @title : '{i18n>OVERALL_STATUS}';
-        Items: Association to many poitems on Items.PARENT_KEY = $self;
+        Items: Composition of many poitems on Items.PARENT_KEY = $self;
     }
 
     entity poitems : common.Amount {
-        key NODE_KEY: common.Guid;
+        key ID: common.Guid;
         PARENT_KEY: Association to purchaseorder;
         PO_ITEM_POS: Integer @title : '{i18n>PO_NO_ID}';
         PRODUCT_GUID: Association to master.product @title : '{i18n>PRODUCT_GUID}';

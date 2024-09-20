@@ -7,7 +7,11 @@ service CatalogService @(path:'CatalogService') {
     //@readonly
     entity EmployeeSet as projection on master.employees;
     entity ProductSet as projection on master.product;
-    entity POs as projection on transaction.purchaseorder{
+    function getOrderStatus() returns POs;
+    entity POs@(
+      odata.draft.enabled: true,
+      Common.DefaultValuesFunction: 'getOrderStatus'
+     ) as projection on transaction.purchaseorder{
         *,
         case OVERALL_STATUS
            when 'N' then 'New'
