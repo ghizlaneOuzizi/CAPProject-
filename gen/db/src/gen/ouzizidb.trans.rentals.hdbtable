@@ -1,0 +1,15 @@
+COLUMN TABLE ouzizidb_trans_rentals (
+  ID NVARCHAR(36) NOT NULL,
+  validFrom TIMESTAMP NOT NULL,
+  validTo TIMESTAMP,
+  createdAt TIMESTAMP,
+  createdBy NVARCHAR(255),
+  modifiedAt TIMESTAMP,
+  modifiedBy NVARCHAR(255),
+  student_ID NVARCHAR(32),
+  book_ID NVARCHAR(32),
+  PRIMARY KEY(ID, validFrom)
+) WITH ASSOCIATIONS (
+  MANY TO ONE JOIN ouzizidb_master_student AS student ON (student.ID = student_ID),
+  MANY TO ONE JOIN ouzizidb_master_books AS book ON (book.ID = book_ID)
+)

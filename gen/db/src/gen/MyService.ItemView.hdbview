@@ -1,0 +1,12 @@
+VIEW MyService_ItemView AS SELECT
+  ItemView_0.VendorId,
+  ItemView_0.ProductId,
+  ItemView_0.Currency_code,
+  ItemView_0.GrossAmount,
+  ItemView_0.NetAmount,
+  ItemView_0.TaxAmount,
+  ItemView_0.Status
+FROM ouzizi_cds_CDSViews_ItemView AS ItemView_0
+WITH ASSOCIATIONS (
+  MANY TO ONE JOIN MyService_Currencies AS Currency ON (Currency.code = Currency_code)
+)

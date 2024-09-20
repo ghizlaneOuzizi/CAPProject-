@@ -1,0 +1,11 @@
+VIEW localized_MyService_ProductOrdersSet AS SELECT
+  ProductOrders_0.ProductKey,
+  ProductOrders_0.ProductName,
+  ProductOrders_0.Price,
+  ProductOrders_0.SupplierId,
+  ProductOrders_0.SupplierName,
+  ProductOrders_0.Country
+FROM localized_ouzizi_cds_CDSViews_ProductOrders AS ProductOrders_0
+WITH ASSOCIATIONS (
+  MANY TO MANY JOIN localized_MyService_ItemView AS ProductOrders ON (ProductOrders.ProductId = ProductKey)
+)

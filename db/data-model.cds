@@ -70,7 +70,7 @@ context master {
 }
 context transaction {
     entity purchaseorder : common.Amount {
-        key ID: common.Guid @title : '{i18n>PO_KEY}';
+        key ID: common.uuid @title : '{i18n>PO_KEY}';
         PO_ID: String(40) @title : '{i18n>PO_ID}';
         PARTNER_GUID: Association to master.businesspartner @title : '{i18n>PARTNER_GUID}';
         LIFECYCLE_STATUS: String(1);
@@ -79,7 +79,7 @@ context transaction {
     }
 
     entity poitems : common.Amount {
-        key ID: common.Guid;
+        key ID: common.uuid;
         PARENT_KEY: Association to purchaseorder;
         PO_ITEM_POS: Integer @title : '{i18n>PO_NO_ID}';
         PRODUCT_GUID: Association to master.product @title : '{i18n>PRODUCT_GUID}';

@@ -1,0 +1,4 @@
+VIEW ouzizi_cds_CDSViews_ProductVH AS SELECT
+  product_0.PRODUCT_ID AS PRODUCT_ID,
+  product_0.DESCRIPTION AS ProductName
+FROM ouzizi_db_master_product AS product_0
